@@ -32,8 +32,8 @@ def transformer_create(name: str, source: str, target: str, storage: str, script
 @transformer.command('update', help='更新迁移信息')
 @argument('name', metavar='NAME')
 @option('-s', '--source', metavar='REPOSITORY', help='来源仓库')
-@option('-t', '--target', metavar='REPOSITORY', required=True, help='目标仓库')
-@option('-o', '--storage', metavar='STORAGE', required=True, help='目标存储单元')
+@option('-t', '--target', metavar='REPOSITORY', help='目标仓库')
+@option('-o', '--storage', metavar='STORAGE', help='目标存储单元')
 @option('-f', '--script', metavar='FILE', help='迁移脚本')
 @help_option('-h', '--help', help='展示帮助信息')
 def transformer_update(name: str, source: str, target: str, storage: str, script: str):
