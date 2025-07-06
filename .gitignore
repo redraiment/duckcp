@@ -1,0 +1,21 @@
+# IntelliJ IDEA
+/.idea/
+
+# Python
+__pycache__/
+*.py[oc]
+/.venv/
+
+# Testing
+test/
+
+# Runtime
+*.log
+
+# Build
+/build/
+/dist/
+/wheels/
+*.egg-info
+*.spec
+/starter
