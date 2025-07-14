@@ -1,6 +1,6 @@
 [project]
 name = "duckcp"
-version = "0.0.2"
+version = "0.1.0"
 description = "数据同步工具"
 readme = "README.md"
 requires-python = ">=3.13.5"
@@ -24,3 +24,10 @@ dev = [
 
 [project.scripts]
 duckcp = "duckcp:main"
+
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""

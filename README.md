@@ -20,7 +20,7 @@ DuckCP按照以下步骤同步数据：
 
 ## 二、安装与使用
 
-* 安装方法：`pip install duckcp==0.0.2`
+* 安装方法：`pip install duckcp==0.1.0`
 * 使用方法：`duckcp -h`
 
 ## 三、案例演示
