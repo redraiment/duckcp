@@ -1,6 +1,6 @@
 [project]
 name = "duckcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "数据同步工具"
 readme = "README.md"
 requires-python = ">=3.13.5"
@@ -10,7 +10,6 @@ dependencies = [
     "pandas>=2.3.0",
     "psycopg2-binary>=2.9.10",
     "pyodps>=0.12.3",
-    "python-crontab>=3.2.0",
     "rich>=14.0.0",
     "sqlglot>=26.31.0",
 ]
