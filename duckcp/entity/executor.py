@@ -1,4 +1,5 @@
 import logging
+import sqlite3
 from collections import namedtuple
 from typing import Self, Any, Sequence, Optional
 
@@ -51,10 +52,9 @@ class Executor:
         - 记录：原始数据。
         """
         logger.debug('sql=%s, parameters=%s', sql, parameters)
-        if parameters:
-            self.cursor.execute(sql, parameters)
-        else:
-            self.cursor.execute(sql)  # 勿删：不同类型Cursor中参数默认值不同，无法统一处理
+        if not parameters:  # 勿删：不同类型Cursor中参数默认值不同，无法统一处理
+            parameters = [] if isinstance(self.cursor, sqlite3.Cursor) else None
+        self.cursor.execute(sql, parameters)
         columns = [column[0] for column in self.cursor.description] if self.cursor.description else []
         records = self.cursor.fetchall()
         return columns, records
