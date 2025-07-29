@@ -20,7 +20,7 @@ DuckCP按照以下步骤同步数据：
 
 ## 二、安装与使用
 
-* 安装方法：`pip install duckcp==0.1.1`
+* 安装方法：`pip install duckcp==0.1.2`
 * 使用方法：`duckcp -h`
 
 ## 三、案例演示
@@ -99,7 +99,11 @@ duckcp repository create 多维表格 -k bitable --access-key <APP-ID> --access-
 - `--access-key <APP-ID>`：飞书开放平台中应用凭证的『App ID』。
 - `--access-secret <APP-SECRET>`：飞书开放平台中应用凭证的『App Secret』。
 
-飞书开放平台上应用凭证的获取方式如下图所示：
+飞书开放平台上创建应用并凭证的获取方式步骤如下：
+
+1. 进入[飞书开发者后台](https://open.feishu.cn/app)页面。
+2. 点击『创建企业自建应用』按钮，填写信息并点击『创建』。
+3. 进入应用详情页面后，点击左侧『凭证与基础信息』菜单，可看到如下图所示的应用凭证。
 
 ![多维表格图表](https://raw.githubusercontent.com/redraiment/duckcp/master/docs/feishu-open-platform-credentials.png)
 
@@ -112,23 +116,39 @@ duckcp repository create 多维表格 -k bitable --access-key <APP-ID> --access-
 本例中，数据最终保存到多维表格『程序员分布表』数据表中。创建存储单元的方法如下：
 
 ```shell
-duckcp storage create 程序员分布表 -r 多维表格 --document ZLtubKG26aGqnmsqq5Cc8YCBnmo --table tblFkmAFDURXSSop
+duckcp storage create 程序员分布表 -r 多维表格 --document <DOCUMENT> --table <TABLE>
 ```
 
 存储介质选项包括：
 
 - `-r/--repository <REPOSITORY>`：指定所属的数据仓库。本例中『REPOSITORY』为『多维表格』。
-- `--document <DOCUMENT>`：飞书多维表格文档的编码。获取方式参考下方，本例中『DOCUMENT』为『ZLtubKG26aGqnmsqq5Cc8YCBnmo』。
-- `--table <TABLE>`：飞书多维表格数据表的编码。获取方式参考下方，本例中『TABLE』为『tblFkmAFDURXSSop』。
+- `--document <DOCUMENT>`：飞书多维表格文档的编码。
+- `--table <TABLE>`：飞书多维表格数据表的编码。
 
-本例中，多维表格数据表网站的URL为：
+飞书多维表格文档与数据表的编码获取步骤如下：
+
+1. 进入[飞书企业云盘](https://www.feishu.cn/product/drive)产品页面。
+2. 点击『进入飞书』按钮。
+3. 点击『新建』-『多维表格』按钮。
+4. 此时会新的页面，其中URL类似：
 
 ```
-https://yinfn-tech.feishu.cn/base/ZLtubKG26aGqnmsqq5Cc8YCBnmo?table=tblFkmAFDURXSSop&view=vewRcgeNX6
+https://yinfn-tech.feishu.cn/base/D3yhboIwZazNERsGfDscLt5onee?table=tblrfAQHyWUlNG1q&view=vewwQlhsgf
 ```
 
-- `/base/`之后的路径参数就是文档编码。
-- 查询参数`table`的值就是数据表编码。
+其中：
+
+- `/base/`之后的路径参数就是文档编码：即`D3yhboIwZazNERsGfDscLt5onee`。
+- 查询参数`table`的值就是数据表编码，即`tblrfAQHyWUlNG1q`。。
+
+**注意**：请填写您自己创建的多维表格文档的编码；并且按照以下步骤为多维表格文档添加文档应用：
+
+1. 点击右上角『...』按钮。
+2. 进入『... 更多』菜单。
+3. 点击『添加文档应用』。
+4. 在添加出的『文档应用』窗口中搜索上面创建的企业应用名称，并为其添加『可编辑』权限。如下图所示：
+
+![文档应用](https://raw.githubusercontent.com/redraiment/duckcp/master/docs/bitable-app.png)
 
 ### 3.4 创建迁移
 

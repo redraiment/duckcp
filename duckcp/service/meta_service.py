@@ -22,7 +22,7 @@ def meta_create():
             with path(migration) as folder:
                 for script in sorted(folder.glob('**/*.sql')):
                     logger.info('执行脚本(%s)', script.name)
-                    meta.execute(script.read_text())
+                    meta.execute(script.read_text(encoding='utf-8'))
         chmod(Configuration.file, 0o600)  # 配置文件里包含部分敏感信息，因此只允许当前用户访问
     else:
         logger.warning('配置文件(%s)已存在', Configuration.file)
