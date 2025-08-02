@@ -49,6 +49,8 @@ DuckCP按照以下步骤同步数据：
 
 ![多维表格图表](https://raw.githubusercontent.com/redraiment/duckcp/master/docs/bitable-chart.png)
 
+开始后续的操作之前，请先参考[飞书多维表格配置](https://github.com/redraiment/duckcp/blob/main/docs/feishu-bitable-getting-started.md)创建飞书企业自建应用，并且添加多维表格的文档应用。
+
 ### 3.1 初始化
 
 DuckCP在本地SQLite3数据库中管理以下元信息：
@@ -105,7 +107,7 @@ duckcp repository create 多维表格 -k bitable --access-key <APP-ID> --access-
 2. 点击『创建企业自建应用』按钮，填写信息并点击『创建』。
 3. 进入应用详情页面后，点击左侧『凭证与基础信息』菜单，可看到如下图所示的应用凭证。
 
-![多维表格图表](https://raw.githubusercontent.com/redraiment/duckcp/master/docs/feishu-open-platform-credentials.png)
+![飞书应用凭证](https://raw.githubusercontent.com/redraiment/duckcp/master/docs/feishu-open-platform-credentials.png)
 
 不同类型的仓库连接选项不一样，细节请参见`duckcp repository create -h`。
 
@@ -140,15 +142,6 @@ https://yinfn-tech.feishu.cn/base/D3yhboIwZazNERsGfDscLt5onee?table=tblrfAQHyWUl
 
 - `/base/`之后的路径参数就是文档编码：即`D3yhboIwZazNERsGfDscLt5onee`。
 - 查询参数`table`的值就是数据表编码，即`tblrfAQHyWUlNG1q`。。
-
-**注意**：请填写您自己创建的多维表格文档的编码；并且按照以下步骤为多维表格文档添加文档应用：
-
-1. 点击右上角『...』按钮。
-2. 进入『... 更多』菜单。
-3. 点击『添加文档应用』。
-4. 在添加出的『文档应用』窗口中搜索上面创建的企业应用名称，并为其添加『可编辑』权限。如下图所示：
-
-![文档应用](https://raw.githubusercontent.com/redraiment/duckcp/master/docs/bitable-app.png)
 
 ### 3.4 创建迁移
 
